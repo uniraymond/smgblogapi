@@ -77,11 +77,7 @@ class PostController extends Controller
       $jsonBlogPostsPage = $jsonBlogPostsArray;
     }
 
-    $currentPosts = json_encode($jsonBlogPostsPage);
-
-    echo $currentPosts;
-//    return view('posts/page',['currentPosts'=>$currentPosts]);
-//    return view('posts/page',['currentPosts'=>$jsonBlogPostsPage]);
+    return response()->json($jsonBlogPostsPage);
 
   }
 
@@ -121,7 +117,7 @@ class PostController extends Controller
         $jsonBlogPostsBodyFilter[] = $blogPost;
       }
     }
-    echo json_encode($jsonBlogPostsBodyFilter);
+    return response()->json($jsonBlogPostsBodyFilter);
   }
 
   /**
@@ -140,7 +136,7 @@ class PostController extends Controller
         $jsonBlogPostsTitleFilter[] = $blogPost;
       }
     }
-    echo json_encode($jsonBlogPostsTitleFilter);
+    return response()->json($jsonBlogPostsTitleFilter);
   }
 
   private function getUserPosts($authuser)
